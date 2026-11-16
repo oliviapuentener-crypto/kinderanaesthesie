@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinderanästhesie — Nachschlagewerk</title>
+<meta name="theme-color" content="#185FA5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kinderanästhesie">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180_1.png">
+<link rel="icon" type="image/png" href="icon-192_1.png">
+<style>
+:root{
+  --bg:#f8f7f4;--bg2:#fff;--border:#e2e0d8;--text:#1a1916;--text2:#6b6960;
+  --blue:#185FA5;--blue-bg:#E6F1FB;--blue-bd:#378ADD;
+  --red:#A32D2D;--red-bg:#FCEBEB;--red-bd:#E24B4A;
+  --green:#3B6D11;--green-bg:#EAF3DE;--green-bd:#639922;
+  --amber:#854F0B;--amber-bg:#FAEEDA;--amber-bd:#EF9F27;
+  --teal:#00695C;--teal-bg:#E0F2F1;--teal-bd:#26A69A;
+  --purple:#5B287B;--purple-bg:#EFE7F8;--purple-bd:#8B5BB0;
+  --pink:#9A1F4F;--pink-bg:#FCE4EC;--pink-bd:#D81B60;
+  --navy:#0C447C;--navy-bg:#DEEAF6;--navy-bd:#185FA5;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;color:var(--text);background:var(--bg);padding:0 0 60px;}
+
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:30;background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.topbar-title{font-size:15px;font-weight:700;color:var(--text);margin-right:6px;}
+.topbar label{font-size:13px;color:var(--text2);font-weight:500;}
+.topbar input[type=number]{width:72px;padding:5px 8px;border-radius:7px;border:1px solid var(--border);background:var(--bg);font-size:13px;font-weight:500;}
+.topbar input[type=number]:focus{outline:none;border-color:var(--blue);}
+.pill{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--text2);}
+.pill strong{color:var(--blue);}
+
+/* NAV TABS */
+.nav{display:flex;flex-wrap:wrap;gap:5px;padding:10px 16px 0;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:49px;z-index:29;}
+.nav button{background:transparent;border:none;border-bottom:2px solid transparent;padding:7px 13px 9px;font-size:13px;cursor:pointer;color:var(--text2);font-weight:500;border-radius:0;transition:all 0.15s;white-space:nowrap;}
+.nav button:hover{color:var(--text);}
+.nav button.active{color:var(--blue);border-bottom-color:var(--blue);}
+.nav button.urgent{color:var(--red);}
+.nav button.urgent.active{border-bottom-color:var(--red);}
+
+.wrap{max-width:960px;margin:0 auto;padding:16px 16px;}
+.tab{display:none;}
+.tab.active{display:block;}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+.card h3{font-size:14px;font-weight:600;margin-bottom:10px;}
+.card h4{font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;margin:12px 0 6px;}
+
+/* ALERTS */
+.alert{border-radius:8px;padding:9px 13px;font-size:13px;margin-bottom:10px;border-left:3px solid;}
+.ar{background:var(--red-bg);color:var(--red);border-color:var(--red-bd);}
+.aa{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-bd);}
+.ab{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bd);}
+.ag{background:var(--green-bg);color:var(--green);border-color:var(--green-bd);}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:var(--bg);font-weight:600;text-align:left;padding:6px 9px;border-bottom:1px solid var(--border);color:var(--text2);font-size:11px;text-transform:uppercase;letter-spacing:0.04em;}
+td{padding:7px 9px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--bg);}
+
+/* INFO ROWS */
+.row{display:flex;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.row:last-child{border-bottom:none;}
+.lbl{color:var(--text2);min-width:150px;flex-shrink:0;}
+.val{font-weight:500;}
+
+/* FLOW CARDS */
+.fc{border-left:3px solid var(--blue-bd);background:var(--bg);border-radius:0 8px 8px 0;padding:9px 13px;margin-bottom:7px;font-size:13px;}
+.fcr{border-left-color:var(--red-bd);}
+.fca{border-left-color:var(--amber-bd);}
+.fcg{border-left-color:var(--green-bd);}
+
+/* GROUP HEADERS */
+.grp{display:flex;align-items:center;gap:8px;padding:9px 14px;font-size:13px;font-weight:600;border-radius:8px 8px 0 0;margin-top:14px;}
+.grp-ico{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.g-notfall{background:var(--red-bg);color:var(--red);border:1px solid var(--red-bd);}
+.g-nark{background:var(--blue-bg);color:var(--navy);border:1px solid var(--blue-bd);}
+.g-tiva{background:var(--navy-bg);color:var(--navy);border:1px solid var(--navy-bd);}
+.g-relax{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-bd);}
+.g-vaso{background:var(--pink-bg);color:var(--pink);border:1px solid var(--pink-bd);}
+.g-ponv{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);}
+.g-analg{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd);}
+.g-sed{background:var(--teal-bg);color:var(--teal);border:1px solid var(--teal-bd);}
+.tbl-notfall{border:1px solid var(--red-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-nark{border:1px solid var(--blue-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-tiva{border:1px solid var(--navy-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-relax{border:1px solid var(--purple-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-vaso{border:1px solid var(--pink-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-ponv{border:1px solid var(--amber-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-analg{border:1px solid var(--green-bd);border-top:none;border-radius:0 0 8px 8px;}
+.tbl-sed{border:1px solid var(--teal-bd);border-top:none;border-radius:0 0 8px 8px;}
+.g-abx{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd);}
+.tbl-abx{border:1px solid var(--blue-bd);border-top:none;border-radius:0 0 8px 8px;}
+.subhead td{padding:4px 10px;font-weight:600;background:var(--bg);font-size:12px;}
+.sub-row td{padding:4px 10px 4px 22px;font-size:12px;color:var(--text2);}
+.dmg{text-align:right;font-weight:600;color:var(--blue);font-size:13px;white-space:nowrap;}
+.dml{text-align:right;font-weight:600;color:var(--teal);font-size:13px;white-space:nowrap;}
+.dn{font-size:11px;color:var(--text2);display:block;line-height:1.3;font-weight:400;margin-top:1px;}
+.tiva-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:6px;}
+.ts{background:var(--bg2);border:1px solid var(--blue-bd);border-radius:6px;padding:5px 7px;text-align:center;}
+.ts-t{font-size:10px;color:var(--navy);font-weight:600;text-transform:uppercase;}
+.ts-r{font-size:12px;font-weight:600;color:var(--blue);margin-top:2px;}
+.ts-m{font-size:10px;color:var(--text2);}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+@media(max-width:600px){.compare{grid-template-columns:1fr;}}
+.cmpcard{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.cmphead{padding:10px 14px;font-weight:600;font-size:13px;color:#fff;}
+.cmphead.inh{background:linear-gradient(135deg,var(--blue-bd),var(--blue));}
+.cmphead.iv{background:linear-gradient(135deg,var(--green-bd),var(--green));}
+.cmpbody{padding:12px 14px;}
+.pro{color:var(--green);font-size:13px;padding:4px 0 4px 22px;position:relative;line-height:1.5;}
+.pro:before{content:"✓";position:absolute;left:4px;font-weight:700;}
+.con{color:var(--red);font-size:13px;padding:4px 0 4px 22px;position:relative;line-height:1.5;}
+.con:before{content:"✗";position:absolute;left:4px;font-weight:700;}
+.cnote{font-size:11px;color:var(--text2);font-style:italic;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
+
+/* RECOMMEND */
+.rec{background:linear-gradient(135deg,var(--blue-bg),var(--amber-bg));border:1px solid var(--amber-bd);border-radius:12px;padding:14px 16px;margin:14px 0;}
+.rec h4{color:var(--amber);margin-bottom:8px;font-size:13px;text-transform:uppercase;}
+.rec-item{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:13px;}
+.rec-num{width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;text-align:center;line-height:22px;font-size:11px;font-weight:700;flex-shrink:0;}
+
+.src{font-size:11px;color:var(--text2);font-style:italic;margin-top:6px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:500px){.two-col{grid-template-columns:1fr;}}
+.st{font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;margin:14px 0 7px;}
+.empty-hint{text-align:center;padding:30px 0;color:var(--text2);font-size:13px;}
+
+/* Tubus table styles */
+.tag-cuff{display:inline-block;font-size:10px;padding:2px 6px;border-radius:8px;font-weight:600;background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd);}
+.tag-uncuff{display:inline-block;font-size:10px;padding:2px 6px;border-radius:8px;font-weight:600;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd);}
+tr.hl td{background:var(--blue-bg);font-weight:600;}
+tr.hl td:first-child{border-left:3px solid var(--blue);}
+
+/* Material result cards */
+.mat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:14px;}
+.mcard{background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center;}
+.mcard.primary{border-color:var(--blue);background:var(--blue-bg);}
+.mcard.danger{border-color:var(--red-bd);background:var(--red-bg);}
+.mcard-val{font-size:20px;font-weight:700;color:var(--blue);line-height:1.1;}
+.mcard.danger .mcard-val{color:var(--red);}
+.mcard-label{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.3;}
+
+/* Guedel */
+.guedel-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.gc{border-radius:8px;padding:6px 10px;font-size:12px;font-weight:600;text-align:center;min-width:80px;border:2px solid transparent;cursor:default;}
+.gc.hl-g{outline:3px solid #333;outline-offset:2px;}
+/* Schmale Ansichten: Tabellen innerhalb ihrer Breite scrollbar halten. */
+@media(max-width:600px){table{display:block;max-width:100%;overflow-x:auto;} .nav{position:static;} .card,.two-col>*{min-width:0;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Kinderanästhesie</span>
+  <label>Gewicht:</label>
+  <input type="number" id="w" min="0.5" max="80" step="0.1" placeholder="kg" oninput="upd()">
+  <span style="font-size:13px;color:var(--text2);">kg</span>
+  <label>Alter:</label>
+  <input type="number" id="age" min="0" max="18" step="0.25" placeholder="J" oninput="upd()">
+  <span style="font-size:13px;color:var(--text2);">J</span>
+  <span class="pill">Alter gesch.: <strong id="est-age">—</strong></span>
+  <span class="pill">LMA: <strong id="pill-lma">—</strong></span>
+  <span class="pill">Tubus: <strong id="pill-tubus">—</strong></span>
+  <span class="pill">Tiefe: <strong id="pill-tiefe">—</strong></span>
+</div>
+
+<nav class="nav">
+  <button class="active" onclick="showTab('notfallblatt',event)">📋 Notfallblatt</button>
+  <button onclick="showTab('normwerte',event)">📊 Normwerte</button>
+  <button onclick="showTab('material',event)">🔧 Material</button>
+  <button onclick="showTab('praemedi',event)">💊 Prämedi</button>
+  <button onclick="showTab('einleitung',event)">▶️ Einleitung</button>
+  <button onclick="showTab('rsi',event)">⚡ RSI</button>
+  <button onclick="showTab('ra',event)">🎯 RA</button>
+  <button onclick="showTab('notfall',event)" class="urgent">🚨 Notfälle</button>
+  <button onclick="showTab('postop',event)">📈 Post-OP</button>
+  <button onclick="showTab('kips',event)">🛏️ KIPS</button>
+</nav>
+
+<div class="wrap">
+
+<!-- ===== NOTFALLBLATT ===== -->
+<div id="tab-notfallblatt" class="tab active">
+
+<div id="nb-empty" class="empty-hint">↑ Gewicht eingeben für Dosierungsberechnung</div>
+<div id="nb-results" style="display:none;">
+
+  <div class="grp g-notfall"><span class="grp-ico">🚨</span>Notfallmedikamente</div>
+  <table class="tbl-notfall">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:110px;">mg / mcg</th><th style="text-align:right;width:100px;">ml</th></tr></thead>
+    <tbody>
+      <tr class="subhead"><td colspan="4">Rocuronium (10 mg/ml)</td></tr>
+      <tr class="sub-row"><td>i.v./i.m./s.c.</td><td>Laryngospasmus 1 mg/kg</td><td class="dmg" id="roclar-mg">—</td><td class="dml" id="roclar-ml">—</td></tr>
+      <tr class="subhead"><td colspan="4">Adrenalin (100 mcg/ml) — nur für Reanimation</td></tr>
+      <tr class="sub-row"><td>i.v.</td><td>10 mcg/kg — Reanimation</td><td class="dmg" id="aiv-mg">—</td><td class="dml" id="aiv-ml">—</td></tr>
+      <tr class="subhead"><td colspan="4">Adrenalin (10 mcg/ml verdünnt) — Anaphylaxie, unverändert / fachlich zu prüfen</td></tr>
+      <tr class="sub-row"><td>i.m.</td><td><strong style="color:var(--red);">10 mcg/kg</strong> — Anaphylaxie</td><td class="dmg" id="aim-mg">—</td><td class="dml" id="aim-ml">—</td></tr>
+    </tbody>
+  </table>
+  <div class="alert ab" id="nb-prep35" style="display:none;margin-top:8px;"><strong>Notfallmedis richten nur unter &lt;35 kg.</strong> Adrenalin 100 mcg/ml ausschliesslich für Reanimation verwenden; nicht für die Anaphylaxie-Zeile dieser Tabelle — <strong>nicht</strong> prophylaktisch aufziehen.</div>
+
+  
+  <div class="grp g-nark"><span class="grp-ico">💤</span>Narkotika / Hypnotika &amp; Opiate (Bolus/Einleitung)</div>
+  <table class="tbl-nark">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:120px;">mg / mcg</th><th style="text-align:right;width:110px;">ml</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Propofol</strong><span class="dn">10 mg/ml</span></td><td>Einleitung 3–5 mg/kg (ab 1 Mt)</td><td class="dmg"><span id="pro-lo">—</span>–<span id="pro-hi">—</span> mg</td><td class="dml"><span id="pro-ml-lo">—</span>–<span id="pro-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Thiopental</strong><span class="dn">25 mg/ml (5 ml Spritze: 3 ml NaCl + 2 ml Erw.-Lsg)</span></td><td>&lt;1 Mt: 3–5 / &lt;1 J: 6 / &gt;1 J: 5 mg/kg</td><td class="dmg" id="thi-mg">—</td><td class="dml" id="thi-ml">—</td></tr>
+      <tr><td><strong>Ketamin</strong><span class="dn">10 mg/ml</span></td><td>1–3 mg/kg iv (Schock, kritisch)</td><td class="dmg"><span id="ket-lo">—</span>–<span id="ket-hi">—</span> mg</td><td class="dml"><span id="ket-ml-lo">—</span>–<span id="ket-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Fentanyl</strong><span class="dn">50 mcg/ml</span></td><td>1–2 mcg/kg</td><td class="dmg"><span id="fen-lo">—</span>–<span id="fen-hi">—</span> mcg</td><td class="dml"><span id="fen-ml-lo">—</span>–<span id="fen-ml-hi">—</span> ml</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-tiva"><span class="grp-ico">⏱️</span>TIVA — Erhaltungsperfusoren</div>
+  <table class="tbl-tiva">
+    <thead><tr><th>Medikament</th><th>Schema</th><th style="text-align:right;width:120px;">Dosis</th><th style="text-align:right;width:140px;">ml/h</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Propofol Perfusor</strong><span class="dn">10 mg/ml · 12-8-6-Schema</span></td>
+        <td>
+          Alle 10 min reduzieren
+          <div class="tiva-steps">
+            <div class="ts"><div class="ts-t">0–10 min</div><div class="ts-r">12 mg/kg/h</div><div class="ts-m" id="p12">—</div></div>
+            <div class="ts"><div class="ts-t">10–20 min</div><div class="ts-r">8 mg/kg/h</div><div class="ts-m" id="p8">—</div></div>
+            <div class="ts"><div class="ts-t">&gt;20 min</div><div class="ts-r">6 mg/kg/h</div><div class="ts-m" id="p6">—</div></div>
+          </div>
+        </td>
+        <td class="dmg" style="vertical-align:middle;">12→8→6<br><span style="font-size:10px;font-weight:400;color:var(--text2);">mg/kg/h</span></td>
+        <td class="dml" style="vertical-align:middle;" id="p-sum">—</td>
+      </tr>
+      <tr>
+        <td><strong>Remifentanyl</strong><span class="dn">1 mg ad 50 ml NaCl = 20 mcg/ml<br><span style="color:var(--red);font-weight:600;">⚠️ Vor Ausleitung stoppen!</span></span></td>
+        <td>Start 0.1 mcg/kg/min · Erhalt 0.1–0.6 · max 0.8–1.0<br><span style="font-size:12px;color:var(--text2);">Kein Remi bei: RA · LAMA · MRI · vor Ausleitung</span></td>
+        <td class="dmg" style="vertical-align:middle;">0.1–0.6<br><span style="font-size:10px;font-weight:400;color:var(--text2);">mcg/kg/min</span></td>
+        <td class="dml" style="vertical-align:middle;"><span id="remi">—</span> ml/h<br><span style="font-size:10px;color:var(--text2);">(Start 0.1)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-relax"><span class="grp-ico">💪</span>Relaxantien &amp; Antagonisten</div>
+  <table class="tbl-relax">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:130px;">mg / mcg</th><th style="text-align:right;width:110px;">ml</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Rocuronium</strong><span class="dn">10 mg/ml · ab 6 Mt</span></td><td>ID &gt;1 J: 0.6 / RSI: 1 mg/kg</td><td class="dmg" id="roc-mg">—</td><td class="dml" id="roc-ml">—</td></tr>
+      <tr><td><strong>Atracurium</strong><span class="dn">10 mg/ml · bis 6–9 Mt</span></td><td>0.5 mg/kg</td><td class="dmg" id="atr-mg">—</td><td class="dml" id="atr-ml">—</td></tr>
+      <tr><td><strong>Succinylcholin</strong><span class="dn">50 mg/ml · RSI &lt;1 J / Notfall</span></td><td>1–2 mg/kg</td><td class="dmg"><span id="suc-lo">—</span>–<span id="suc-hi">—</span> mg</td><td class="dml"><span id="suc-ml-lo">—</span>–<span id="suc-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Sugammadex</strong><span class="dn">100 mg/ml · ab 2 J</span></td><td>Restrelax. 2–4 / RSI-Aufhebung 16 mg/kg</td><td class="dmg" id="sug-mg">—</td><td class="dml" id="sug-ml">—</td></tr>
+      <tr><td><strong>Robinul-Neostigmin</strong><span class="dn">Fertiglsg.</span></td><td>0.1 ml / 5 kg (min 0.1 ml)</td><td class="dmg">—</td><td class="dml" id="rob-ml">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-vaso"><span class="grp-ico">❤️</span>Vasoaktiva &amp; Inotropika</div>
+  <table class="tbl-vaso">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:130px;">mg / mcg</th><th style="text-align:right;width:110px;">ml</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ephedrin</strong><span class="dn">10 mg/ml · α+β</span></td><td>0.1 mg/kg (Hypotonie)</td><td class="dmg" id="eph-mg">—</td><td class="dml" id="eph-ml">—</td></tr>
+      <tr><td><strong>Atropin</strong><span class="dn">0.5 mg/ml</span></td><td>0.02 mg/kg (Bradykardie)</td><td class="dmg" id="atp-mg">—</td><td class="dml" id="atp-ml">—</td></tr>
+      <tr><td><strong>Adrenalin Perfusor</strong><span class="dn">10 mcg/ml (1 mg ad 100 ml NaCl)</span></td><td>1–5 mcg/kg/min</td><td class="dmg"><span id="ap-lo">—</span>–<span id="ap-hi">—</span> mcg/min</td><td class="dml"><span id="ap-ml-lo">—</span>–<span id="ap-ml-hi">—</span> ml/h</td></tr>
+      <tr><td><strong>Noradrenalin Perfusor</strong><span class="dn">1 mg ad 50 ml NaCl · Vasokonstr. α1</span></td><td>0.05–0.5 mcg/kg/min · KG/3 = 0.1 mcg/kg/min</td><td class="dmg" id="noa-mcg">—</td><td class="dml" id="noa-ml">—</td></tr>
+      <tr><td><strong>Dobutamin Dobutrex®</strong><span class="dn">250 mg/50 ml = 5 mg/ml · β1</span></td><td>5–20 mcg/kg/min (Herzinsuff.)</td><td class="dmg"><span id="dob-lo">—</span>–<span id="dob-hi">—</span> mcg/min</td><td class="dml"><span id="dob-ml-lo">—</span>–<span id="dob-ml-hi">—</span> ml/h</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-ponv"><span class="grp-ico">🤢</span>PONV-Prophylaxe</div>
+  <table class="tbl-ponv">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:120px;">mg / mcg</th><th style="text-align:right;width:110px;">ml</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ondansetron</strong><span class="dn">2 mg/ml · ab 2 J</span></td><td>0.1–0.15 mg/kg</td><td class="dmg"><span id="ond-lo">—</span>–<span id="ond-hi">—</span> mg</td><td class="dml"><span id="ond-ml-lo">—</span>–<span id="ond-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Dexamethason</strong><span class="dn">4 mg/ml · ab 1 J</span></td><td>0.15 mg/kg (PONV) · 0.5 mg/kg max 8 mg (Stridor)</td><td class="dmg" id="dex-mg">—</td><td class="dml" id="dex-ml">—</td></tr>
+      <tr><td><strong>Vomex</strong><span class="dn">62 mg/ml</span></td><td>1 mg/kg langsam (Off-label)</td><td class="dmg" id="vom-mg">—</td><td class="dml" id="vom-ml">—</td></tr>
+      <tr><td><strong>Droperidol</strong><span class="dn">2.5 mg/ml</span></td><td>10–15 mcg/kg iv langsam (Off-label, BD-Mon.!)</td><td class="dmg"><span id="dro-lo">—</span>–<span id="dro-hi">—</span> mcg</td><td class="dml"><span id="dro-ml-lo">—</span>–<span id="dro-ml-hi">—</span> ml</td></tr>
+    </tbody>
+  </table>
+  <div class="alert aa" style="margin-top:8px;">Keine PONV-Prophylaxe &lt;6 Mt (ggf. erst ab 2 J)</div>
+
+  <div class="grp g-analg"><span class="grp-ico">💊</span>Basisanalgetika</div>
+  <table class="tbl-analg">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:120px;">mg</th><th style="text-align:right;width:120px;">ml / Form</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Paracetamol supp</strong><span class="dn">60/125/250/500 mg · ab Geburt</span></td><td>20 mg/kg</td><td class="dmg" id="pcs-mg">—</td><td class="dml" id="pcs-zf">—</td></tr>
+      <tr><td><strong>Paracetamol i.v.</strong><span class="dn">10 mg/ml · ab Geburt</span></td><td>15 mg/kg</td><td class="dmg" id="pciv-mg">—</td><td class="dml" id="pciv-ml">—</td></tr>
+      <tr><td><strong>Metamizol (Novalgin)</strong><span class="dn">500 mg/ml · ≥1 Monat · Insulinspritze</span></td><td>10–15 mg/kg iv</td><td class="dmg"><span id="met-lo">—</span>–<span id="met-hi">—</span> mg</td><td class="dml"><span id="met-ml-lo">—</span>–<span id="met-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Ibuprofen supp</strong><span class="dn">&gt;3 Mt / &gt;6 kg · alle 6–8 h</span></td><td>10 mg/kg supp</td><td class="dmg" id="ibs-mg">—</td><td class="dml" id="ibs-zf">—</td></tr>
+      <tr><td><strong>Ibuprofen i.v.</strong><span class="dn">4 mg/ml · ab 6 LJ — NICHT &lt;6 J!</span></td><td>10 mg/kg iv (max 30 mg/kg/d)</td><td class="dmg" id="ibiv-mg">—</td><td class="dml" id="ibiv-ml">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-sed"><span class="grp-ico">🌙</span>Sedativa &amp; Co-Analgetika</div>
+  <table class="tbl-sed">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:120px;">mg / mcg</th><th style="text-align:right;width:110px;">ml</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Catapressan (Clonidin)</strong><span class="dn">15 mcg/ml verdünnt (unverdünnt 150 mcg/ml) · ab 6 Mt · α2-Agonist</span></td><td>1–2 mcg/kg</td><td class="dmg"><span id="clo-lo">—</span>–<span id="clo-hi">—</span> mcg</td><td class="dml"><span id="clo-ml-lo">—</span>–<span id="clo-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Dexmedetomidin (Dexdor)</strong><span class="dn">100 mcg/ml · α2-Agonist</span></td><td>Loading 0.5–1.0 mcg/kg über 10 min · Erhalt 0.3–0.7 mcg/kg/h</td><td class="dmg"><span id="dxd-lo">—</span>–<span id="dxd-hi">—</span> mcg</td><td class="dml"><span id="dxd-ml-lo">—</span>–<span id="dxd-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Nalbuphin</strong><span class="dn">1 mg/ml verdünnt (unverdünnt 20 mg/2 ml) · κ-Agonist/μ-Antag.</span></td><td>0.1–0.2 mg/kg (Schmerz, ED, Stridor)</td><td class="dmg"><span id="nal-lo">—</span>–<span id="nal-hi">—</span> mg</td><td class="dml"><span id="nal-ml-lo">—</span>–<span id="nal-ml-hi">—</span> ml</td></tr>
+      <tr><td><strong>Midazolam</strong><span class="dn">1 mg/ml verdünnt</span></td><td>iv 0.05–0.1 / nasal 0.2 mg/kg</td><td class="dmg"><span id="mid-lo">—</span>–<span id="mid-hi">—</span> mg</td><td class="dml"><span id="mid-ml-lo">—</span>–<span id="mid-ml-hi">—</span> ml</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grp g-abx"><span class="grp-ico">💉</span>Antibiotikaprophylaxe (perioperativ, Einmalgabe)</div>
+  <table class="tbl-abx">
+    <thead><tr><th>Medikament</th><th>Indikation</th><th style="text-align:right;width:120px;">Dosis</th><th style="text-align:right;width:100px;">mg</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kefzol (Cefazolin)</strong></td><td>Standardprophylaxe</td><td>25 mg/kg</td><td class="dmg" id="caz-mg">—</td></tr>
+      <tr><td><strong>Co-Amoxicillin</strong></td><td>Alternative/erweitertes Spektrum</td><td>25 mg/kg</td><td class="dmg" id="coa-mg">—</td></tr>
+      <tr><td><strong>Metronidazol</strong></td><td>Anaerobier-Zusatz</td><td>10 mg/kg</td><td class="dmg" id="mtz-mg">—</td></tr>
+      <tr><td><strong>Clindamycin</strong></td><td>bei Penicillinallergie</td><td>20 mg/kg</td><td class="dmg" id="cli-mg">—</td></tr>
+      <tr><td><strong>Rocephin (Ceftriaxon)</strong></td><td>Alternative/erweitertes Spektrum</td><td>50 mg/kg</td><td class="dmg" id="cro-mg">—</td></tr>
+    </tbody>
+  </table>
+  <div class="alert aa" style="margin-top:8px;">ml-Umrechnung bewusst weggelassen — Konzentration je nach Rekonstitution/Charge; bitte lokal nachrechnen.</div>
+
+  <div class="alert aa" id="nb-warn" style="display:none;margin-top:12px;"></div>
+</div>
+</div><!-- /notfallblatt -->
+
+<!-- ===== NORMWERTE ===== -->
+<div id="tab-normwerte" class="tab">
+  <div class="two-col">
+    <div class="card">
+      <h3>Vitalzeichen nach Alter</h3>
+      <table>
+        <thead><tr><th>Alter</th><th>HF /min</th><th>AF /min</th><th>sys. RR</th></tr></thead>
+        <tbody>
+          <tr><td>Neugeboren</td><td>120–160</td><td>40–60</td><td>60–85</td></tr>
+          <tr><td>Säugling</td><td>100–160</td><td>30–40</td><td>70–100</td></tr>
+          <tr><td>1–3 J</td><td>90–150</td><td>25–35</td><td>80–110</td></tr>
+          <tr><td>3–6 J</td><td>80–130</td><td>20–30</td><td>85–115</td></tr>
+          <tr><td>6–12 J</td><td>70–120</td><td>18–25</td><td>90–120</td></tr>
+          <tr><td>&gt;12 J</td><td>60–100</td><td>15–20</td><td>100–130</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Formeln</h3>
+      <div class="row"><span class="lbl">Gewicht 1–10 J:</span><span class="val">Alter × 2 + 8</span></div>
+      <div class="row"><span class="lbl">Min. RR syst.:</span><span class="val">Alter × 2 + 70</span></div>
+      <div class="row"><span class="lbl">BV Neugeboren:</span><span class="val">90 ml/kg</span></div>
+      <div class="row"><span class="lbl">BV &gt;NG:</span><span class="val">80 ml/kg</span></div>
+      <div class="row"><span class="lbl">Max. Blutverlust:</span><span class="val">&gt;25% → Transfusion</span></div>
+      <div class="row"><span class="lbl">4 ml/kg EC hebt Hb:</span><span class="val">um ~10 g/l</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Transfusionstrigger (Hb-Grenzen)</h3>
+    <table>
+      <thead><tr><th>Alter</th><th>Hb-Grenze</th><th>Ausnahmen (Hypoxämie)</th></tr></thead>
+      <tbody>
+        <tr><td>NG &lt;2 Wochen</td><td>&lt;100 g/l</td><td>&lt;130 g/l</td></tr>
+        <tr><td>NG 2–4 Wochen</td><td>&lt;80 g/l</td><td>&lt;110 g/l</td></tr>
+        <tr><td>SG / Kleinkind</td><td>&lt;70 g/l</td><td>&lt;100 g/l</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== MATERIAL ===== -->
+<div id="tab-material" class="tab">
+
+  <!-- Schnell-Ergebnis Karten -->
+  <div id="mat-cards" style="display:none;">
+    <div class="mat-cards">
+      <div class="mcard primary" id="mc-main">
+        <div class="mcard-val" id="mv-main">—</div>
+        <div class="mcard-label" id="ml-main">Tubus ID (Microcuff)</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-val" id="mv-unc">—</div>
+        <div class="mcard-label">Tubus ungecufft</div>
+      </div>
+      <div class="mcard primary">
+        <div class="mcard-val" id="mv-depth">—</div>
+        <div class="mcard-label">Einführtiefe oral</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-val" id="mv-lma">—</div>
+        <div class="mcard-label">Larynxmaske (AirQ)</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-val" id="mv-fib">—</div>
+        <div class="mcard-label">Fiberoptik Vathin</div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-val" id="mv-ae">—</div>
+        <div class="mcard-label">Airway Exchanger</div>
+      </div>
+    </div>
+    <div id="mc-cuff" class="alert ag" style="display:none;"></div>
+    <div id="mc-warn" class="alert aa" style="display:none;"></div>
+  </div>
+  <div id="mat-hint" class="empty-hint" style="padding:16px 0;">↑ Gewicht / Alter eingeben für Materialempfehlung</div>
+
+  <!-- TUBUSTABELLE -->
+  <div class="card">
+    <h3>KSGR Tubustabelle 2023</h3>
+    <div class="alert ag"><strong>Ab Tubus 3.0 ID → gecufft (Microcuff)</strong> · Cuffdruck max 20 cmH₂O · unter 3.0 ID → ungecufft</div>
+    <div class="alert aa"><strong>Videolaryngoskop obligat:</strong> RSI · Alter &lt;1 J · erwartet schwieriger AW</div>
+    <div style="overflow-x:auto;">
+    <table id="mat-tube-table">
+      <thead>
+        <tr>
+          <th>Gewicht / Alter</th>
+          <th>ohne Cuff</th>
+          <th>mit Cuff (Microcuff)</th>
+          <th>Einführtiefe oral</th>
+          <th>Larynxmaske</th>
+          <th>Fiberoptik Vathin</th>
+          <th>Airway Exchanger*</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-tid="fg600"><td>FG &lt;600 g</td><td><span class="tag-uncuff">2,0–2,5</span></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr data-tid="fg1000"><td>FG 1000 g</td><td><span class="tag-uncuff">2,5</span></td><td>—</td><td>7 cm</td><td>—</td><td>2.2 zero</td><td>6F</td></tr>
+        <tr data-tid="fg2000"><td>FG 2000 g</td><td><span class="tag-uncuff">2,5–3,0</span></td><td>—</td><td>8 cm</td><td>—</td><td>2.2 zero</td><td>6F</td></tr>
+        <tr data-tid="ng3"><td>NG 3 kg</td><td>3,5</td><td><span class="tag-cuff">3,0</span></td><td>9 cm</td><td>1,0 (&lt;5 kg)</td><td>2.2 zero</td><td>6F</td></tr>
+        <tr data-tid="3kg4m"><td>3 kg – 4 Mt</td><td>3,5</td><td><span class="tag-cuff">3,0</span></td><td>10 cm</td><td>1,5</td><td>2.2 zero</td><td>6F</td></tr>
+        <tr data-tid="4m8m"><td>4 – 8 Mt</td><td>4,0</td><td><span class="tag-cuff">3,0</span></td><td>11–12 cm</td><td>1,5</td><td>2.2 zero</td><td>6F</td></tr>
+        <tr data-tid="8m2j"><td>8 Mt – 2 J</td><td>4,5</td><td><span class="tag-cuff">3,5</span></td><td>12–13 cm</td><td>1,5–2,0</td><td>2.2 zero</td><td>8F</td></tr>
+        <tr data-tid="2j4j"><td>2 J – &lt;4 J</td><td>—</td><td><span class="tag-cuff">4,0</span></td><td>13–14 cm</td><td>2,0</td><td>3.2 slim</td><td>8F</td></tr>
+        <tr data-tid="4j6j"><td>4 J – &lt;6 J</td><td>—</td><td><span class="tag-cuff">4,5</span></td><td>14–15 cm</td><td>2,0–2,5</td><td>3.2 slim</td><td>11F</td></tr>
+        <tr data-tid="6j8j"><td>6 J – &lt;8 J</td><td>—</td><td><span class="tag-cuff">5,0</span></td><td>15–16 cm</td><td>2,5</td><td>3.2 slim</td><td>11F</td></tr>
+        <tr data-tid="8j10j"><td>8 J – &lt;10 J</td><td>—</td><td><span class="tag-cuff">5,5</span></td><td>16–17 cm</td><td>2,5–3,0</td><td>4.9 normal</td><td>14F</td></tr>
+        <tr data-tid="10j12j"><td>10 J – &lt;12 J</td><td>—</td><td><span class="tag-cuff">6,0</span></td><td>17–18 cm</td><td>3,0 (&gt;50 kg: 4,0)</td><td>4.9 normal</td><td>14F</td></tr>
+        <tr data-tid="12j14j"><td>12 J – &lt;14 J</td><td>—</td><td><span class="tag-cuff">6,5</span></td><td>18–19 cm</td><td>4,0</td><td>4.9 normal</td><td>14F</td></tr>
+        <tr data-tid="14j16j"><td>14 J – &lt;16 J</td><td>—</td><td><span class="tag-cuff">7,0</span></td><td>19–20 cm</td><td>4,0</td><td>4.9 normal</td><td>19F</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="src">*6F: Interguide tracheal tube introducer · ab 8F: COOK Airway Exchanger | Quelle: KSGR SOP Atemweg / Klifaris KidzManual 2023</p>
+  </div>
+
+  <!-- LARYNGOSKOP -->
+  <div class="card">
+    <h3>Laryngoskopspatel</h3>
+    <table id="mat-lary-table">
+      <thead><tr><th>Gewicht</th><th>Direkter Spatel</th><th>Macintosh (KSGR-Empfehlung DAW)</th></tr></thead>
+      <tbody>
+        <tr data-lw="0,5"><td>&lt;5 kg</td><td>Miller 0</td><td>Neo: Gr. 0</td></tr>
+        <tr data-lw="5,8"><td>5–8 kg</td><td>Miller 1</td><td>SG: Gr. 0–1</td></tr>
+        <tr data-lw="8,30"><td>8–30 kg</td><td>Macintosh 2</td><td>0.5–2 J: Gr. 1–2 · 2–6 J: Gr. 2</td></tr>
+        <tr data-lw="30,999"><td>&gt;30 kg</td><td>Macintosh 3</td><td>&gt;6 J: Gr. 3</td></tr>
+      </tbody>
+    </table>
+    <div class="alert aa" style="margin-top:8px;">Primär Miller-Spatel im DAW · VL obligat bei RSI / &lt;1 J / schwierigem AW</div>
+  </div>
+
+  <!-- BEATMUNGSSCHLÄUCHE -->
+  <div class="alert ar"><strong>CAVE Kapnographie:</strong> Kinderschläuche messen CO₂ über Filteranschluss · Erwachsenenschläuche im Coaxialsystem</div>
+  <div class="alert aa"><strong>KEIN Patienten-Filter</strong> zwischen Tubus und Beatmungsschlauch bei SG &lt;10 kg!</div>
+  <div class="card">
+    <h3>Beatmungsschläuche, Beutel &amp; Filter</h3>
+    <table id="mat-sch-table">
+      <thead><tr><th>Gewicht</th><th>Schlauch</th><th>Beutel</th><th>Filter</th><th>Besonderheit</th></tr></thead>
+      <tbody>
+        <tr data-sw="0,5"><td>&lt;5 kg</td><td>Neonatal</td><td>500 ml</td><td>Kein Patienten-Filter!</td><td>Gerät-Filter ok</td></tr>
+        <tr data-sw="5,10"><td>5–10 kg</td><td>Neonatal</td><td>500 ml</td><td>Kein Patienten-Filter!</td><td>Kinderfilter Gerät</td></tr>
+        <tr data-sw="10,35"><td>10–35 kg</td><td>Kinder</td><td>1000 ml</td><td>Kinderfilter</td><td>Evtl. Erw.-Schlauch + Kinderreservoir</td></tr>
+        <tr data-sw="35,999"><td>&gt;35 kg</td><td>Erwachsenen</td><td>2000 ml</td><td>Erw.-Filter</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Kinderschläuche im B9 holen! (KSGR-SOP)</p>
+  </div>
+
+  <!-- GUEDEL -->
+  <div class="card">
+    <h3>Guedeltuben &amp; Wendltuben</h3>
+    <div class="alert ab">Guedel <strong>nur bei Bewusstlosigkeit</strong> (sonst Laryngospasmus). Grösse: Mund–Tragus-Abstand.</div>
+    <h4>Guedel nach Gewicht</h4>
+    <div class="guedel-row">
+      <div class="gc" id="gc1" style="background:#FFB6C1;color:#5a0020;border-color:#c46080;">Rosa/Hellgrün<br><strong>3.5</strong><br>&lt;3 kg</div>
+      <div class="gc" id="gc2" style="background:#87CEEB;color:#003060;border-color:#4088b8;">Blau<br><strong>5</strong><br>3–6 kg</div>
+      <div class="gc" id="gc3" style="background:#C0C0C0;color:#202020;border-color:#808080;">Grau<br><strong>5.5</strong><br>6–10 kg</div>
+      <div class="gc" id="gc4" style="background:#d4a017;color:#fff;border-color:#a07010;">Dunkelgelb<br><strong>6.5</strong><br>10–20 kg</div>
+      <div class="gc" id="gc5" style="background:#90C878;color:#1a3a10;border-color:#50904a;">Grün<br><strong>8</strong><br>20–60 kg</div>
+      <div class="gc" id="gc6" style="background:#FF8C00;color:#fff;border-color:#cc6600;">Orange<br><strong>9</strong><br>&gt;60 kg</div>
+    </div>
+    <div class="alert aa"><strong>Wendltubus:</strong> Alternative bei erhaltener Spontanatmung / nicht bewusstlos. <strong>Nicht bei SHT!</strong></div>
+  </div>
+
+  <!-- pVK & UK -->
+  <div class="card">
+    <h3>Venenverweilkanüle &amp; Urinkatheter</h3>
+    <div class="two-col">
+      <div>
+        <h4>pVK</h4>
+        <div class="row"><span class="lbl">Standard:</span><span class="val">22G</span></div>
+        <div class="row"><span class="lbl">SG / &lt;5 kg:</span><span class="val">24G (= 18G Erw.!)</span></div>
+        <div class="row"><span class="lbl">Selten:</span><span class="val">20G bei KK</span></div>
+      </div>
+      <div>
+        <h4>Urinkatheter</h4>
+        <div class="row"><span class="lbl">5–10 kg:</span><span class="val">6 Ch</span></div>
+        <div class="row"><span class="lbl">10–20 kg:</span><span class="val">8 Ch</span></div>
+        <div class="row"><span class="lbl">20–40 kg:</span><span class="val">10 Ch</span></div>
+        <div class="row"><span class="lbl">&gt;40 kg:</span><span class="val">12 Ch</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFUSION -->
+  <div class="card">
+    <h3>Infusion &amp; Volumen</h3>
+    <div class="alert ab">Perioperativer Flüssigkeitsersatz — Kristalloid (Ringerfundin) als Standard</div>
+    <table>
+      <thead><tr><th>Gewicht</th><th>Gerät</th><th>Lösung</th><th>Rate</th></tr></thead>
+      <tbody>
+        <tr><td>&lt;5 kg</td><td><strong>Perfusor</strong></td><td>Ringer + Glukose 1% (bis 52 SSW / 4 J)</td><td>10 ml/kg/h (1. Stunde)</td></tr>
+        <tr><td>5–20 kg</td><td><strong>Infusomat</strong></td><td>Ringer + Glukose 1% (bis 4 J), dann Ringerfundin</td><td>10 ml/kg/h → 4-2-1</td></tr>
+        <tr><td>&gt;20 kg</td><td><strong>Freilaufend</strong></td><td>Ringerfundin</td><td>4-2-1-Regel</td></tr>
+      </tbody>
+    </table>
+    <h4>4-2-1-Regel (Erhaltungsbedarf ml/h)</h4>
+    <table>
+      <thead><tr><th>Gewichtsanteil</th><th>Rate</th></tr></thead>
+      <tbody>
+        <tr><td>1.–10. kg</td><td>4 ml/kg/h</td></tr>
+        <tr><td>11.–20. kg</td><td>+ 2 ml/kg/h</td></tr>
+        <tr><td>&gt;20. kg</td><td>+ 1 ml/kg/h</td></tr>
+      </tbody>
+    </table>
+    <div class="alert ab" style="margin-top:8px;"><strong>Erhaltungsbedarf: <span id="maint-421">—</span> ml/h</strong><br><span style="font-size:11px;font-weight:400;color:var(--text2);" id="maint-421-calc"></span></div>
+    <h4>Volumenbolus &amp; Blut</h4>
+    <table>
+      <thead><tr><th>Indikation</th><th>Lösung</th><th>Menge</th></tr></thead>
+      <tbody>
+        <tr><td>Hypotonie / Hypovolämie</td><td>Kristalloid</td><td>10–20 ml/kg Bolus</td></tr>
+        <tr><td>Blutverlust</td><td>HA 5% oder Tetraspan (max 30 ml/kg/d)</td><td>5–10 ml/kg</td></tr>
+      </tbody>
+    </table>
+    <div class="alert aa" style="margin-top:8px;"><strong>Glukose:</strong> Normal: Ringer+Glukose 1% bei 10 ml/kg/h · FG/krank: bis 5 mg/kg/min → 10% Glukose</div>
+  </div>
+
+  <!-- WÄRME -->
+  <div class="card">
+    <h3>Wärme</h3>
+    <div class="row"><span class="lbl">LUKS:</span><span class="val">Wärmedecke bis 60 kg</span></div>
+    <div class="row"><span class="lbl">Säuglinge:</span><span class="val">Schulterrolle, Saaltemp 26°C, Wärmelampe</span></div>
+  </div>
+</div>
+
+<!-- ===== PRÄMEDIKATION ===== -->
+<div id="tab-praemedi" class="tab">
+
+  <div class="card">
+    <h3>Medikamentöse Prämedikation</h3>
+    <table>
+      <thead><tr><th>Medi</th><th>Applikation</th><th>Indikation</th><th>Dosis</th><th>Wirkung</th><th style="text-align:right;">Berechnet</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4"><strong>Midazolam</strong></td><td>Oral</td><td>Normale Prämedi, ab 2 J</td><td>0.5 mg/kg (max 15/10 mg)</td><td>30 min</td><td class="dmg" id="pm-mid-oral">—</td></tr>
+        <tr><td>Rektal</td><td>6 Mt – 2 J</td><td>1 mg/kg</td><td>15 min</td><td class="dmg" id="pm-mid-rect">—</td></tr>
+        <tr><td>Nasal</td><td>Nachprämedi in Schleuse</td><td>0.2 mg/kg</td><td>Direkt</td><td class="dmg" id="pm-mid-nas">—</td></tr>
+        <tr><td>i.v.</td><td>pVK vorhanden</td><td>0.05–0.1 mg/kg</td><td>Direkt</td><td class="dmg" id="pm-mid-iv">—</td></tr>
+        <tr><td rowspan="2"><strong>Ketamin</strong></td><td>Oral</td><td>Nachprämedi</td><td>2–4 mg/kg (LUKS bis 10)</td><td>20–30 min</td><td class="dmg" id="pm-ket-oral">—</td></tr>
+        <tr><td>Rektal</td><td>Nachprämedi</td><td>6 mg/kg</td><td>10–20 min</td><td class="dmg" id="pm-ket-rect">—</td></tr>
+        <tr><td><strong>Ketamin nasal</strong></td><td>Nasal</td><td>Nachprämedi / unkoop. Kind</td><td>4 mg/kg</td><td>10–15 min</td><td class="dmg" id="pm-ket-nas">—</td></tr>
+        <tr><td><strong>Esketamin nasal</strong></td><td>Nasal</td><td>Kleinkinder (halbe Dosis!)</td><td>2–4 mg/kg</td><td>10–15 min</td><td class="dmg" id="pm-esket-nas">—</td></tr>
+        <tr><td><strong>Dexmedetomidin nasal</strong><br><span style="font-size:11px;color:var(--text2);">(Dexdor® 100 mcg/ml)</span></td><td>Nasal</td><td>Sedation / Nachprämedi</td><td>2 mcg/kg</td><td>20–30 min</td><td class="dmg" id="pm-dex-nas">—</td></tr>
+      </tbody>
+    </table>
+    <div class="alert aa" id="pm-empty" style="margin-top:8px;">↑ Gewicht in der Kopfzeile eingeben für berechnete Dosen</div>
+    <div class="alert aa" style="margin-top:10px;">Paradoxe Reaktion auf Midazolam → oft Unterdosierung · Nasale Nachprämedi in Schleuse</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h4>Besonderheiten</h4>
+      <div class="row"><span class="lbl">Sinnvoll ab:</span><span class="val">6 Monate (Fremdeln)</span></div>
+      <div class="row"><span class="lbl">Schulkinder:</span><span class="val">Tiefer dosiert (Hangover)</span></div>
+      <div class="row"><span class="lbl">Kein Clonidin:</span><span class="val">&lt;6 Monate</span></div>
+    </div>
+    <div class="card">
+      <h4>OSAS / Trisomie 21</h4>
+      <div class="alert ar">SpO₂-Monitoring ab Prämedi + O₂ am Bett</div>
+      <div class="row"><span class="lbl">Nasivin:</span><span class="val">Grosszügig</span></div>
+      <div class="row"><span class="lbl">Schweres OSAS:</span><span class="val">Prämedi NICHT empfohlen</span></div>
+      <div class="row"><span class="lbl">Alternative:</span><span class="val">Nasales Ketamin in Schleuse</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Nahrungskarenz</h3>
+    <table>
+      <thead><tr><th>Was</th><th>Karenz</th></tr></thead>
+      <tbody>
+        <tr><td>Klare Flüssigkeit</td><td><strong>1 Stunde</strong> (neue Empfehlung ab 2024)</td></tr>
+        <tr><td>Muttermilch</td><td>4 Stunden</td></tr>
+        <tr><td>Formulamilch / leichte Mahlzeit</td><td>6 Stunden</td></tr>
+        <tr><td>Feste Nahrung</td><td>6 Stunden</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ERKÄLTETE KINDER -->
+  <div class="card">
+    <h3>Erkältete Kinder — Vorgehen</h3>
+    <div class="alert ab"><strong>Grundprinzip:</strong> Atemwegsreaktivität erhöht (URTI RR 2.1–2.3 für AW-Komplikationen, Wheezing-Anamnese RR bis 8.5 für Bronchospasmus — Lancet 2010)</div>
+
+    <h4>Welches Einleitungsverfahren?</h4>
+    <div class="compare">
+      <div class="cmpcard">
+        <div class="cmphead inh">💨 Inhalativ (Sevofluran) — bevorzugt</div>
+        <div class="cmpbody">
+          <div class="pro">Sanfte Vertiefung, Spontanatmung erhalten</div>
+          <div class="pro">Bronchodilatation durch Sevofluran</div>
+          <div class="pro">Bei Spasmus → Vertiefung möglich</div>
+          <div class="pro">Kein abrupter Apnoe-Moment</div>
+          <div class="con">Längere Exzitationsphase → Sekret-Husten</div>
+          <div class="cnote">Atemweg "wird langsam" — kontrolliert und sanft</div>
+        </div>
+      </div>
+      <div class="cmpcard">
+        <div class="cmphead iv">💉 Intravenös (Propofol)</div>
+        <div class="cmpbody">
+          <div class="pro">Schnelle, kontrollierte Vertiefung</div>
+          <div class="pro">Laryngeale Reflexhemmung sofort</div>
+          <div class="con">Apnoe → BMV nötig → Trigger Laryngospasmus</div>
+          <div class="con">Manipulation in flacher Narkose riskant</div>
+          <div class="cnote">Schnellere Atemwegssicherung, aber höheres Spasmus-Risiko</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rec">
+      <h4>⭐ Empfehlung Erkältete Kinder (KSGR)</h4>
+      <div class="rec-item"><div class="rec-num">1</div><div><strong>Inhalative Einleitung bevorzugen</strong> — sanfter, weniger reaktiv</div></div>
+      <div class="rec-item"><div class="rec-num">2</div><div><strong>iv-Zugang VOR Einleitung legen</strong> — Sicherheitsnetz bei plötzlichem Laryngo-/Bronchospasmus</div></div>
+      <div class="rec-item"><div class="rec-num">3</div><div><strong>EMLA grosszügig</strong> für stressfreien pVK</div></div>
+      <div class="rec-item"><div class="rec-num">4</div><div><strong>Salbutamol prä-OP inhalativ</strong> (1 ml + 3 ml NaCl) · Reserve intra-OP: 6–12 Hübe</div></div>
+      <div class="rec-item"><div class="rec-num">5</div><div><strong>Nasivin altersangepasst</strong> (0.01% ab 3 Mt · 0.02% 2–6 J · 0.05% &gt;6 J)</div></div>
+      <div class="rec-item"><div class="rec-num">6</div><div><strong>LMA bevorzugen</strong> statt ITN wo möglich</div></div>
+      <div class="rec-item"><div class="rec-num">7</div><div><strong>Wache Ausleitung</strong> — Schutzreflexe vorhanden</div></div>
+    </div>
+    <div class="alert ar">Aktuelle URTI &lt;2 W oder produktiver Husten → elektive OP wenn möglich verschieben!</div>
+    <p class="src">Quelle: von Ungern-Sternberg Lancet 2010 · KSGR OneNote</p>
+  </div>
+
+  <!-- SCHWIERIGER ATEMWEG -->
+  <div class="card">
+    <h3>Schwieriger Atemweg — Einleitungsstrategie</h3>
+    <div class="alert ar"><strong>Schwieriger AW = vorausschauende Planung!</strong> RF: Pierre-Robin, Goldenhar, MKG-Spalten, OSAS, HWS-Anomalien, Trisomie 21</div>
+
+    <h4>Zwei Strategien im Vergleich</h4>
+    <div class="compare">
+      <div class="cmpcard">
+        <div class="cmphead inh">💨 Inhalativ (Sevofluran)</div>
+        <div class="cmpbody">
+          <div style="font-weight:600;color:var(--blue);font-size:13px;margin-bottom:6px;">Atemweg weniger schnell weg</div>
+          <div class="pro">Spontanatmung bleibt erhalten</div>
+          <div class="pro">"Try and see" — Aufwachen lassen möglich</div>
+          <div class="pro">Reversibel bei Problemen</div>
+          <div class="pro">Ideal wenn iv-Zugang schwierig</div>
+          <div class="con">Bedingungen NICHT sofort optimal</div>
+          <div class="con">Längere Exzitationsphase</div>
+          <div class="con">Laryngospasmngsgefahr in flacher Phase</div>
+          <div class="cnote"><strong>Wann:</strong> iv-Zugang schwierig · Aufwach-Option gewünscht · unklarer AW</div>
+        </div>
+      </div>
+      <div class="cmpcard">
+        <div class="cmphead iv">💉 Intravenös (Propofol)</div>
+        <div class="cmpbody">
+          <div style="font-weight:600;color:var(--green);font-size:13px;margin-bottom:6px;">Atemweg sofort weg — Bedingungen optimal schnell</div>
+          <div class="pro">Optimale Intubationsbedingungen schnell</div>
+          <div class="pro">Tiefe Narkose schnell erreicht</div>
+          <div class="pro">Laryngeale Reflexhemmung sofort</div>
+          <div class="con">Atemweg SOFORT weg → BMV obligat</div>
+          <div class="con">Cannot ventilate = kritisch</div>
+          <div class="con">Reversibilität schwieriger</div>
+          <div class="cnote"><strong>Wann:</strong> iv-Zugang vorhanden · AW-Plan B steht · erfahrenes Team</div>
+        </div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:14px;">Obligat bei beiden Verfahren</h4>
+    <div class="fc fcg"><strong>Videolaryngoskop bereithalten</strong> (S1-LL 2020: obligat bei erwartet schwierigem AW)</div>
+    <div class="fc fcg"><strong>LMA in passender Grösse bereit</strong> (Plan B)</div>
+    <div class="fc fcg"><strong>Fiberoptik verfügbar</strong></div>
+    <div class="fc fcg"><strong>OA &amp; erfahrenes Team vor Ort</strong></div>
+    <div class="fc fcg"><strong>Spontanatmung erhalten</strong> bis AW gesichert</div>
+    <div class="alert aa" style="margin-top:8px;"><strong>Keine Koniotomie beim Kind!</strong> (Anatomie ungeeignet) &nbsp;|&nbsp; Plan B: LMA / Aufwachen lassen / fiberoptisch</div>
+    <p class="src">Quelle: Weiss 2011 · S1-LL Management schwieriger AW 2020 · www.orphananesthesia.eu bei seltenen Syndromen</p>
+  </div>
+</div>
+
+<!-- ===== EINLEITUNG ===== -->
+<div id="tab-einleitung" class="tab">
+  <div class="alert ab"><strong>Apnoetoleranz Kinder beträchtlich reduziert</strong> — Säuglinge desaturieren in &lt;60 s! (Hardman/Wills BJA 2006) → Präoxygenierung kritisch</div>
+  <div class="two-col">
+    <div class="card">
+      <h3>Inhalative Einleitung</h3>
+      <div class="alert ag">Indikation: Grundsätzlich alle Kinder ausser…</div>
+      <div class="alert ar">Nicht nüchtern · erkältet · SG &lt;3–6 Mt · ASA ≥3 · MH-Risiko · schwieriger AW</div>
+      <div class="row"><span class="lbl">Ablauf:</span><span class="val">SpO₂ → Präoxy 3 min N₂O 50/50 (PEEP 5) → 6–8 Vol% Sevo</span></div>
+    </div>
+    <div class="card">
+      <h3>Intravenöse Einleitung</h3>
+      <div class="row"><span class="lbl">Indikation:</span><span class="val">Krank / instabil / MH / schwieriger AW / &lt;52 SSW / <strong>RSI</strong></span></div>
+      <div class="row"><span class="lbl">Propofol:</span><span class="val">3–5 mg/kg + Lidocain 1 mg/kg (ab SG)</span></div>
+      <div class="row"><span class="lbl">Thiopental:</span><span class="val">FG/NG 3–5 / SG 5–7 mg/kg</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Inhalativ vs. TIVA</h3>
+    <table>
+      <thead><tr><th>Aspekt</th><th>Inhalativ (Sevo)</th><th>TIVA</th></tr></thead>
+      <tbody>
+        <tr><td>Indikation</td><td>Alle bis 1 J</td><td>HNO/Augen/MH/PONV/ED</td></tr>
+        <tr><td>Propofol TIVA</td><td>Wechsel nach Eltg möglich</td><td>12–8–6 ml/kg/h in 10-min-Schritten</td></tr>
+        <tr><td>TCI</td><td>—</td><td>Ab 12 J</td></tr>
+        <tr><td>Remi</td><td>0.1–0.2 mcg/kg/min</td><td>bis 0.6–0.8 mcg/kg/min</td></tr>
+        <tr><td>Kein Remi bei</td><td colspan="2">RA · LAMA · MRI · vor Ausleitung</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Ausleitung</h3>
+    <table>
+      <thead><tr><th></th><th>Schlafend</th><th>Wach</th></tr></thead>
+      <tbody>
+        <tr><td>Indikation</td><td>&gt;1.5 J, kein Infekt, keine HNO</td><td>Erkältung · RSI · HNO</td></tr>
+        <tr><td>Vorgehen</td><td>Spontanatmung sichern → Esmarch → Sevo + Propofol 0.5–1 mg/kg → SL</td><td>Gezieltes Greifen zum Tubus (Augen nicht zwingend offen) — nicht zwingend Schreien am Tubus</td></tr>
+      </tbody>
+    </table>
+    <div class="alert aa" style="margin-top:8px;">OA muss vor Ort sein bei &lt;6 J!</div>
+  </div>
+</div>
+
+<!-- ===== RSI ===== -->
+<div id="tab-rsi" class="tab">
+  <div class="alert ab"><strong>RSI ≠ RSII</strong> — RSII = Rapid Sequence Induction <em>and</em> Intubation. Schnelle Anästhesieeinleitung + AW-Sicherung beim nicht-nüchternen Kind.</div>
+  <div class="card">
+    <h3>Paradigmenwechsel pädiatrische RSI</h3>
+    <div class="alert ar"><strong>Hypoxie ist beim Kind das grössere Problem</strong> als Aspiration — klassische RSI ohne Zwischenbeatmung führt bei NG/SG zu profunder Hypoxämie</div>
+    <div class="alert ag"><strong>Konsequenz:</strong> Beim Kind WIRD beatmet (druckkontrolliert max 10–15 mbar bis volle Relaxation). Cricoid-Druck verlassen.</div>
+    <p class="src">DGAI-Handlungsempfehlung Schmidt AI 2007 · Engelhardt Pediatric Anesthesia 2015</p>
+  </div>
+  <div class="card">
+    <h3>Ablauf modifizierte RSI Kind (KSGR)</h3>
+    <div class="fc">1. <strong>Vorbereitung:</strong> Magensonde absaugen, alle Medis bereit, Absaugpumpe</div>
+    <div class="fc">2. <strong>Monitoring + Kapnographie</strong> an vor Einleitung</div>
+    <div class="fc">3. <strong>Präoxygenierung:</strong> dichtsitzende Maske, FiO₂ 100%</div>
+    <div class="fc fca">4. <strong>Hypnotikum + Opiat + Relaxans:</strong> Propofol/Esketamin + Rocuronium 1 mg/kg</div>
+    <div class="fc">5. <strong>Druckkontrollierte Zwischenbeatmung</strong> max 10–15 mbar bis volle Relaxation</div>
+    <div class="fc fcg">6. <strong>Atraumatische ITN</strong> mit Videolaryngoskop (obligat!) — Zeit spielt keine Rolle</div>
+    <div class="fc">7. <strong>Magen absaugen</strong> nach gesicherter ITN</div>
+  </div>
+  <div class="card">
+    <h3>Was wurde verlassen?</h3>
+    <div class="row"><span class="lbl">❌ Kein Cricoid-Druck:</span><span class="val">Erschwert ITN, kein Wirksamkeitsbeweis</span></div>
+    <div class="row"><span class="lbl">❌ Kein Apnoe-Warten:</span><span class="val">Kinder beatmen — kontrolliert druckbegrenzt</span></div>
+    <div class="row"><span class="lbl">✅ Ziel:</span><span class="val">Optimale Oxygenierung + atraumatische ITN</span></div>
+  </div>
+</div>
+
+<!-- ===== RA ===== -->
+<div id="tab-ra" class="tab">
+  <div class="card">
+    <h3>Maximaldosen LA</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;">
+      <div style="background:var(--bg);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:16px;font-weight:700;color:var(--blue);">5 mg/kg</div><div style="font-size:11px;color:var(--text2);">Lidocain</div></div>
+      <div style="background:var(--bg);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:16px;font-weight:700;color:var(--blue);">2–3 mg/kg</div><div style="font-size:11px;color:var(--text2);">Bupivacain</div></div>
+      <div style="background:var(--bg);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:16px;font-weight:700;color:var(--blue);">3–4 mg/kg</div><div style="font-size:11px;color:var(--text2);">Ropivacain</div></div>
+      <div style="background:var(--bg);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:16px;font-weight:700;color:var(--blue);">5 mg/kg</div><div style="font-size:11px;color:var(--text2);">Mepivacain</div></div>
+      <div style="background:var(--bg);border-radius:8px;padding:10px;text-align:center;"><div style="font-size:16px;font-weight:700;color:var(--blue);">6 mg/kg</div><div style="font-size:11px;color:var(--text2);">Prilocain</div></div>
+    </div>
+    <div class="alert ab" style="margin-top:10px;"><strong>Adjuvans Dexamethason iv:</strong> 0.2 mg/kg iv → verlängert Blockadedauer signifikant</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Caudalblock</h3>
+      <div class="row"><span class="lbl">LA:</span><span class="val">Ropi 0.2% + Adrenalin</span></div>
+      <div class="row"><span class="lbl">Testdosis:</span><span class="val">0.1 ml/kg</span></div>
+      <div class="row"><span class="lbl">Aufspritzdosis:</span><span class="val">0.75–1.25 ml/kg</span></div>
+      <div class="row"><span class="lbl">Spritze 1:</span><span class="val">9.5 ml Ropi 0.2% + 0.5 ml Adrenalin</span></div>
+      <div class="row"><span class="lbl">Spritze 2:</span><span class="val">10 ml Ropi 0.2%</span></div>
+      <div class="row"><span class="lbl">Nadel:</span><span class="val">Epican</span></div>
+      <div class="alert ar" style="margin-top:8px;">NIE gegen Druck injizieren!</div>
+    </div>
+    <div class="card">
+      <h3>Penisblock</h3>
+      <div class="row"><span class="lbl">LA:</span><span class="val">Ropi 0.75%</span></div>
+      <div class="row"><span class="lbl">Dosis:</span><span class="val">0.1 ml/kg/Seite (max 5 ml)</span></div>
+      <div class="row"><span class="lbl">Nadel:</span><span class="val">Pencan 25G</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Periphere Blockaden</h3>
+    <table>
+      <thead><tr><th>Block</th><th>Medikament</th><th>Dosierung &lt;40 kg</th><th>Dosierung ≥40 kg / Bemerkung</th></tr></thead>
+      <tbody>
+        <tr><td><strong>TAP</strong></td><td>Ropi 0.2%</td><td>0.5 ml/kg pro Seite</td><td>—</td></tr>
+        <tr>
+          <td><strong>Poplitealer Single Shot</strong><span style="font-size:11px;display:block;color:var(--text2);">Kombinationsanästhesie</span></td>
+          <td>Ropi 0.2%</td>
+          <td>0.25–0.5 ml/kg<br><span style="font-size:11px;color:var(--text2);">max 3 mg/kg</span></td>
+          <td>Ab 40 kg: 30 ml Ropi 0.2%</td>
+        </tr>
+        <tr>
+          <td><strong>Poplitealer Katheter</strong></td>
+          <td>Mepivacain 1%</td>
+          <td>Erhalt: 0.15–0.3 ml/kg/h<br><span style="font-size:11px;color:var(--text2);">max 6 ml/h initial</span></td>
+          <td>Aufspritzen: 0.25–0.5 ml/kg (max 20 ml)</td>
+        </tr>
+        <tr>
+          <td><strong>Femoralis Single Shot</strong></td>
+          <td>Ropi 0.2%</td>
+          <td>0.5–0.75 ml/kg<br><span style="font-size:11px;color:var(--text2);">max bis 40 kg</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Adduktorenkanal</strong></td>
+          <td>Ropi 0.5%</td>
+          <td>0.25–0.5 ml/kg<br><span style="font-size:11px;color:var(--text2);">max bis 40 kg</span></td>
+          <td>—</td>
+        </tr>
+        <tr><td><strong>Axillärer Plexus</strong></td><td>Ropi 0.2%</td><td>0.5 ml/kg</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="alert ab" style="margin-top:8px;"><strong>LAST-Prävention:</strong> Aspirationsprobe · Testdosis mit Adrenalin (T-Wellen-Elevation) · langsam injizieren · EKG/RR-Monitoring</div>
+  </div>
+</div>
+
+<!-- ===== NOTFÄLLE ===== -->
+<div id="tab-notfall" class="tab">
+  <div class="alert ar"><strong>Bei jedem Notfall:</strong> Hilfe! · FiO₂ 100% · Speak up · CRM</div>
+
+  <!-- Laryngospasmus -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">🫁 Laryngo- / Bronchospasmus</h3>
+    <div class="fc">1. Hilfe + FiO₂ 100% + Beatmung von Hand</div>
+    <div class="fc">2. Vertiefen: Laryngo → Propofol/Thio 2 mg/kg · Broncho → Propofol/Sevo</div>
+    <div class="fc fca">Salbutamol &lt;6 J: 6 Hübe · &gt;6 J: 12 Hübe</div>
+    <div class="fc fca">Adrenalin: 1 mcg/kg iv · 3 mg inhal. (&lt;1 J) / 5 mg (&gt;1 J)</div>
+    <div class="fc fcr">SpO₂ &lt;80% → Relaxation: Succi oder Roc 1 mg/kg</div>
+  </div>
+
+  <!-- DOPES -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">⚙️ Beatmungsproblem — DOPES</h3>
+    <div class="fc fcr"><strong>D</strong> — Dislokation Tubus/Schlauch</div>
+    <div class="fc fcr"><strong>O</strong> — Obstruktion (Sekret) → absaugen</div>
+    <div class="fc fcr"><strong>P</strong> — Pneumothorax</div>
+    <div class="fc fcr"><strong>E</strong> — Equipment (Leckage, Gerät)</div>
+    <div class="fc fcr"><strong>S</strong> — Stomach (geblähter Magen SG)</div>
+  </div>
+
+  <!-- Anaphylaxie -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">💉 Anaphylaxie</h3>
+    <div class="fc">1. Allergen stoppen + Hilfe</div>
+    <div class="fc fcr">2. <strong>Adrenalin 10 mcg/kg i.m.</strong>, 2–3× wiederholen alle 5 min</div>
+    <div class="fc fca">3. Volumen 10–20 ml/kg + iv Adrenalin/NA</div>
+    <div class="fc fca">4. Bronchospasmus → Adrenalin iv/inhal. + Salbutamol</div>
+    <div class="fc">5. Sekundär: Steroide + Antihistaminika (keine Lebensretter!)</div>
+    <div class="fc">6. Tryptase, Allergologie, Allergiepass</div>
+  </div>
+
+  <!-- MH -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">🌡️ Maligne Hyperthermie</h3>
+    <div class="alert aa">Mortalität ohne Dantrolen ~70%, mit Dantrolen 1–3%</div>
+    <div class="fc fcr">1. Stop Trigger (Volatile/Succi), Verdampfer raus, Hilfe</div>
+    <div class="fc">2. FiO₂ 100% ↑, OP beenden, aktiv kühlen</div>
+    <div class="fc">3. Vapor-Clean Filter, Wechsel auf Propofol/Ketamin/Opiate</div>
+    <div class="fc fcr">4. <strong>Dantrolen 2.5 mg/kg iv</strong>, q 10 min wiederholen bis Zeichen ↓</div>
+  </div>
+
+  <!-- Tonsillennachblutung -->
+  <div class="card" style="border-color:var(--amber-bd);border-left:4px solid var(--amber-bd);">
+    <h3 style="color:var(--amber);">🩸 Tonsillennachblutung</h3>
+    <div class="alert ar">Lebensbedrohlich! Hypovolämie + voller Magen + ggf. schwieriger AW</div>
+    <div class="fc">1. Grosser iv-Zugang / IO, ggf. Ketamin bei Kreislaufdepression</div>
+    <div class="fc fcr">2. Kontrollierte RSII</div>
+    <div class="fc">3. Magen absaugen (HNO-Operateur)</div>
+    <div class="fc">4. Volumen + EC bereit, Gerinnungskontrolle</div>
+    <div class="fc">5. Extubation NUR bei Blutstillung + Gerinnung ok</div>
+  </div>
+
+  <!-- Difficult Airway -->
+  <div class="card" style="border-color:var(--amber-bd);border-left:4px solid var(--amber-bd);">
+    <h3 style="color:var(--amber);">🫁 Difficult Airway (Weiss 2011)</h3>
+    <div class="fc">Basis 1: Kopflagerung + Esmarch · Guedel · 2-Hand-2-Personen-MB</div>
+    <div class="fc fca">Basis 2: Zu flach → vertiefen · Laryngospasmus → Relax. · Bronchospasmus → Adrenalin · Magen → entlasten</div>
+    <div class="fc">Plan A: Direkte Laryngoskopie + ITN</div>
+    <div class="fc fcr">Plan B (ITN misslingt): LMA / fiberoptisch / aufwachen lassen — <strong>KEINE Koniotomie!</strong></div>
+  </div>
+</div>
+
+<!-- ===== POST-OP ===== -->
+<div id="tab-postop" class="tab">
+
+  <!-- ED Info -->
+  <div class="card" style="border-color:var(--blue-bd);border-left:4px solid var(--blue-bd);">
+    <h3>😵 Emergence Delir (ED)</h3>
+    <div class="alert ab">Inzidenz 25–80%, v.a. 2–5 J. Selbstlimitierend — aber distressig für Kind und Familie.</div>
+    <table>
+      <thead><tr><th>Risikofaktor</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td>Alter</td><td>2–5 Jahre (Vorschulalter)</td></tr>
+        <tr><td>Eingriffe</td><td>LKG, ORL/HNO, Augen, Kieferchirurgie</td></tr>
+        <tr><td>Anästhesie</td><td>Inhalativa (Sevo, Des)</td></tr>
+        <tr><td>Postop.</td><td>Schmerzen (häufigste Ursache!)</td></tr>
+        <tr><td>Vorbestehend</td><td>ADHS, Ängstlichkeit, Z.n. ED</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ED Prophylaxe -->
+  <div class="card" style="border-color:var(--green-bd);border-left:4px solid var(--green-bd);">
+    <h3 style="color:var(--green);">✅ ED-Prophylaxe (bei Risikopatienten)</h3>
+    <div class="fc fcg">Gute Prämedikation · ruhiger Narkosebeginn</div>
+    <div class="fc fcg">Suffiziente Analgesie (häufigste Ursache!)</div>
+    <div class="fc fcg">Propofol 1 mg/kg iv VOR Ausleitung</div>
+    <div class="fc fcg">Clonidin 2 mcg/kg iv ab 6 Mt</div>
+    <div class="fc fcg">Dexmedetomidin 0.2 mcg/kg iv</div>
+    <div class="fc fcg">TIVA bei Z.n. ED</div>
+  </div>
+
+  <!-- ED Therapie -->
+  <div class="card" style="border-color:var(--amber-bd);border-left:4px solid var(--amber-bd);">
+    <h3 style="color:var(--amber);">🔧 ED-Therapie (Stufenschema)</h3>
+    <div class="fc fca">1. <strong>Schmerz ausschliessen</strong> → Nalbuphin 0.1–0.2 mg/kg</div>
+    <div class="fc fca">2. Propofol 0.5–1 mg/kg langsam (SL, O₂, "Re-Start")</div>
+    <div class="fc fca">3. Clonidin 1–2 mcg/kg iv (Repetition möglich)</div>
+    <div class="fc fca">4. Ketamin 1 mg/kg iv</div>
+    <div class="fc fca">5. Droperidol 10 mcg/kg iv (Offlabel, BD-Monitoring)</div>
+    <div class="fc">Ohne Zugang: Ketamin 2 mg/kg nasal · Midazolam 0.1–0.2 mg/kg nasal · Catapressan nasal · Dexdor nasal</div>
+    <div class="alert ab" style="margin-top:8px;">Eltern informieren! Bei nächster Prämedi und Narkose erwähnen → TIVA einplanen</div>
+  </div>
+
+  <!-- Stridor -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">🔊 Extubationsstridor / Postintubationskrupp</h3>
+    <div class="row"><span class="lbl">Inzidenz:</span><span class="val">~5% nach ITN, interventionsbedürftig &lt;1%</span></div>
+    <div class="row"><span class="lbl">RF:</span><span class="val">Zu grosser Tubus, mehrere Versuche, Husten, URTI</span></div>
+    <div class="row"><span class="lbl">Adrenalin inhal.:</span><span class="val">3–5 mg unverdünnt (altersunabh.)</span></div>
+    <div class="row"><span class="lbl">Dexamethason:</span><span class="val">0.5 mg/kg iv (max 8 mg) q 6 h</span></div>
+    <div class="alert aa" style="margin-top:8px;">Stridor meist 1. h post-OP → mind. 1 h Klinikverbleib nach ITN</div>
+  </div>
+
+  <!-- Apnoe -->
+  <div class="card" style="border-color:var(--red-bd);border-left:4px solid var(--red-bd);">
+    <h3 style="color:var(--red);">⚠️ Postoperative Apnoe</h3>
+    <div class="alert ar">Ehem. FG: Risiko bis ~55 SSW postmenstruell · RA allein eliminiert Apnoerisiko NICHT!</div>
+    <div class="row"><span class="lbl">Ehem. FG:</span><span class="val">Resp. Überwachung 24 h</span></div>
+    <div class="row"><span class="lbl">Schweres OSAS:</span><span class="val">Resp. Überwachung + SpO₂</span></div>
+    <div class="row"><span class="lbl">Z.n. near-miss SIDS:</span><span class="val">Intensive Überwachung</span></div>
+  </div>
+</div>
+
+<!-- ===== KIPS ===== -->
+<div id="tab-kips" class="tab">
+  <div class="alert ab">"Bring-Prinzip" — KIPS bringt, Anästhesie bringt zurück.</div>
+  <div class="st">Hauptkriterien (geplante Eingriffe)</div>
+  <div class="fc fcr">Ehem. FG bis korr. Alter 52 W</div>
+  <div class="fc fcr">Ehem. NG bis 48 W</div>
+  <div class="fc fcr">Neuromuskuläre Erkrankungen</div>
+  <div class="fc fcr">OSAS schwer (ausser TE/ATE bei leichtem OSAS)</div>
+  <div class="fc fcr">Alle Thoraxeingriffe (ausser Trichterbrust)</div>
+  <div class="fc fcr">Alle neurochirurgischen Eingriffe</div>
+  <div class="fc fcr">Erwartete AW-Probleme post-OP</div>
+  <div class="fc fcr">Erwarteter BV &gt;30% Blutvolumen</div>
+  <div class="fc fcr">OP-Dauer &gt;4 h</div>
+  <div class="fc fcr">Erwartete Schmerzproblematik (CP)</div>
+  <div class="st">Ungeplant — zusätzlich</div>
+  <div class="fc fca">Ehem. NG bis korr. 52 W</div>
+  <div class="fc fca">Kreislaufinstabilität intraop. (Vasoaktiva)</div>
+  <div class="fc fca">AW-Probleme bei Ein-/Ausleitung</div>
+  <div class="fc fca">SG &lt;1 J mit AW-Infekt</div>
+  <div class="alert ar" style="margin-top:12px;"><strong>Keine Eventual-Anmeldungen!</strong></div>
+  <p class="src">Quelle: Auszug KSGR SOP</p>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function showTab(n,e){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  e.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// KSGR Tubustabelle 2023
+const TUBE_ROWS=[
+  {id:'fg600', cuffed:null,  uncuffed:'2,0–2,5',depth:'—',       lma:'—',             fib:'—',         ae:'—',  minKg:0,   maxKg:0.6, minA:null,maxA:null},
+  {id:'fg1000',cuffed:null,  uncuffed:'2,5',    depth:'7 cm',    lma:'—',             fib:'2.2 zero',  ae:'6F', minKg:0.6, maxKg:1.2, minA:null,maxA:null},
+  {id:'fg2000',cuffed:null,  uncuffed:'2,5–3,0',depth:'8 cm',    lma:'—',             fib:'2.2 zero',  ae:'6F', minKg:1.2, maxKg:2.9, minA:null,maxA:null},
+  {id:'ng3',   cuffed:'3,0', uncuffed:'3,5',    depth:'9 cm',    lma:'1,0 (<5 kg)',   fib:'2.2 zero',  ae:'6F', minKg:2.9, maxKg:4,   minA:0,   maxA:0.08},
+  {id:'3kg4m', cuffed:'3,0', uncuffed:'3,5',    depth:'10 cm',   lma:'1,5',           fib:'2.2 zero',  ae:'6F', minKg:3,   maxKg:7,   minA:0,   maxA:0.33},
+  {id:'4m8m',  cuffed:'3,0', uncuffed:'4,0',    depth:'11–12 cm',lma:'1,5',           fib:'2.2 zero',  ae:'6F', minKg:5,   maxKg:9,   minA:0.33,maxA:0.67},
+  {id:'8m2j',  cuffed:'3,5', uncuffed:'4,5',    depth:'12–13 cm',lma:'1,5–2,0',       fib:'2.2 zero',  ae:'8F', minKg:7,   maxKg:13,  minA:0.67,maxA:2},
+  {id:'2j4j',  cuffed:'4,0', uncuffed:null,     depth:'13–14 cm',lma:'2,0',           fib:'3.2 slim',  ae:'8F', minKg:11,  maxKg:16,  minA:2,   maxA:4},
+  {id:'4j6j',  cuffed:'4,5', uncuffed:null,     depth:'14–15 cm',lma:'2,0–2,5',       fib:'3.2 slim',  ae:'11F',minKg:14,  maxKg:22,  minA:4,   maxA:6},
+  {id:'6j8j',  cuffed:'5,0', uncuffed:null,     depth:'15–16 cm',lma:'2,5',           fib:'3.2 slim',  ae:'11F',minKg:18,  maxKg:30,  minA:6,   maxA:8},
+  {id:'8j10j', cuffed:'5,5', uncuffed:null,     depth:'16–17 cm',lma:'2,5–3,0',       fib:'4.9 normal',ae:'14F',minKg:25,  maxKg:38,  minA:8,   maxA:10},
+  {id:'10j12j',cuffed:'6,0', uncuffed:null,     depth:'17–18 cm',lma:'3,0',           fib:'4.9 normal',ae:'14F',minKg:32,  maxKg:48,  minA:10,  maxA:12},
+  {id:'12j14j',cuffed:'6,5', uncuffed:null,     depth:'18–19 cm',lma:'4,0',           fib:'4.9 normal',ae:'14F',minKg:40,  maxKg:58,  minA:12,  maxA:14},
+  {id:'14j16j',cuffed:'7,0', uncuffed:null,     depth:'19–20 cm',lma:'4,0',           fib:'4.9 normal',ae:'19F',minKg:48,  maxKg:80,  minA:14,  maxA:18},
+];
+
+function findTubeRow(w,a){
+  const hA=a!=null&&!isNaN(a)&&a>=0;
+  const hW=w!=null&&!isNaN(w)&&w>0;
+  if(hA){
+    for(const r of TUBE_ROWS){if(r.minA!=null&&r.maxA!=null&&a>=r.minA&&a<r.maxA)return r;}
+    if(a>=16)return TUBE_ROWS[TUBE_ROWS.length-1];
+  }
+  if(hW){
+    if(w<0.6)return TUBE_ROWS[0];if(w<1.2)return TUBE_ROWS[1];if(w<2.9)return TUBE_ROWS[2];
+    if(w<4)return TUBE_ROWS[3];if(w<7)return TUBE_ROWS[4];if(w<9)return TUBE_ROWS[5];
+    if(w<13)return TUBE_ROWS[6];if(w<16)return TUBE_ROWS[7];if(w<22)return TUBE_ROWS[8];
+    if(w<30)return TUBE_ROWS[9];if(w<38)return TUBE_ROWS[10];if(w<48)return TUBE_ROWS[11];
+    if(w<58)return TUBE_ROWS[12];return TUBE_ROWS[13];
+  }
+  return null;
+}
+
+function hlTable(tableId,attr,val){
+  document.querySelectorAll('#'+tableId+' tbody tr').forEach(r=>{
+    r.classList.remove('hl');
+    const range=r.getAttribute(attr);
+    if(!range||val==null)return;
+    const[lo,hi]=range.split(',').map(Number);
+    if(val>=lo&&val<hi)r.classList.add('hl');
+  });
+}
+function hlById(tableId,rowId){
+  document.querySelectorAll('#'+tableId+' tbody tr').forEach(r=>{
+    r.classList.remove('hl');
+    if(r.getAttribute('data-tid')===rowId)r.classList.add('hl');
+  });
+}
+function hlGuedel(w){
+  ['gc1','gc2','gc3','gc4','gc5','gc6'].forEach(id=>{const e=document.getElementById(id);if(e)e.classList.remove('hl-g');});
+  if(!w)return;
+  const gc=w<3?'gc1':w<6?'gc2':w<10?'gc3':w<20?'gc4':w<60?'gc5':'gc6';
+  const e=document.getElementById(gc);if(e)e.classList.add('hl-g');
+}
+
+function f(v,d){d=d===undefined?1:d;return parseFloat(v.toFixed(d));}
+function s(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
+
+function upd(){
+  const w=parseFloat(document.getElementById('w').value);
+  const a=parseFloat(document.getElementById('age').value);
+  const hasW=!isNaN(w)&&w>0;
+  const hasA=!isNaN(a)&&a>=0;
+
+  // Alter schätzen
+  let ageEst='—';
+  if(hasW){
+    if(w<=3.5)ageEst='NG';
+    else if(w<=6)ageEst='~1–3 Mt';
+    else if(w<=10)ageEst='~3–12 Mt';
+    else if(w<=12)ageEst='~1–2 J';
+    else if(w<=15)ageEst='~2–4 J';
+    else if(w<=20)ageEst='~5–7 J';
+    else if(w<=30)ageEst='~8–10 J';
+    else ageEst='&gt;10 J';
+  }
+  s('est-age',ageEst);
+
+  // LMA
+  let lma='—';
+  if(hasW){
+    if(w<5)lma='1';else if(w<10)lma='1.5';else if(w<20)lma='2';
+    else if(w<30)lma='2.5';else if(w<50)lma='3';else lma='4';
+  }
+  s('pill-lma',lma);
+
+  const res=document.getElementById('nb-results');
+  const hint=document.getElementById('nb-empty');
+  if(!hasW){res.style.display='none';hint.style.display='block';return;}
+  res.style.display='block';hint.style.display='none';
+
+  // Notfallmedis
+  s('roclar-mg',f(w,1)+' mg');s('roclar-ml',f(w/10,2)+' ml');
+  s('aiv-mg',f(w*10,1)+' mcg');s('aiv-ml',f(w*0.01/0.1,2)+' ml');
+  s('aim-mg',f(w*10,0)+' mcg');s('aim-ml',f(w*0.01/0.01,2)+' ml');
+  const prep35=document.getElementById('nb-prep35');
+  if(prep35)prep35.style.display=(w<35)?'block':'none';
+
+  // Antibiotikaprophylaxe
+  s('caz-mg',f(w*25,0)+' mg');
+  s('coa-mg',f(w*25,0)+' mg');
+  s('mtz-mg',f(w*10,0)+' mg');
+  s('cli-mg',f(w*20,0)+' mg');
+  s('cro-mg',f(w*50,0)+' mg');
+
+  // Narkotika
+  s('pro-lo',f(w*3,0));s('pro-hi',f(w*5,0));
+  s('pro-ml-lo',f(w*3/10,1));s('pro-ml-hi',f(w*5/10,1));
+  const ageForThio=hasA?a:(hasW?estimateAge(w):1);
+  const thio=ageForThio<1/12?w*4:ageForThio<1?w*6:w*5;
+  s('thi-mg',f(thio,0)+' mg');s('thi-ml',f(thio/25,2)+' ml');
+  s('ket-lo',f(w*1,1));s('ket-hi',f(w*3,1));
+  s('ket-ml-lo',f(w*1/10,2));s('ket-ml-hi',f(w*3/10,2));
+  s('fen-lo',f(w*1,0));s('fen-hi',f(w*2,0));
+  s('fen-ml-lo',f(w*1/50,2));s('fen-ml-hi',f(w*2/50,2));
+
+  // TIVA
+  s('p12',f(12*w/10,1)+' ml/h');s('p8',f(8*w/10,1)+' ml/h');s('p6',f(6*w/10,1)+' ml/h');
+  s('p-sum',f(12*w/10,1)+'→'+f(8*w/10,1)+'→'+f(6*w/10,1)+' ml/h');
+  s('remi',f(0.1*w*60/20,1));
+
+  // Relaxantien
+  s('roc-mg',f(w*0.6,1)+' / RSI '+f(w,1)+' mg');s('roc-ml',f(w*0.6/10,2)+' / '+f(w/10,2)+' ml');
+  s('atr-mg',f(w*0.5,1)+' mg');s('atr-ml',f(w*0.5/10,2)+' ml');
+  s('suc-lo',f(w,1));s('suc-hi',f(w*2,1));s('suc-ml-lo',f(w/50,2));s('suc-ml-hi',f(w*2/50,2));
+  s('sug-mg',f(w*2,0)+'–'+f(w*4,0)+' (RSI '+f(w*16,0)+') mg');
+  s('sug-ml',f(w*2/100,2)+'–'+f(w*4/100,2)+' (RSI '+f(w*16/100,2)+') ml');
+  s('rob-ml',f(Math.max(0.1,w/5*0.1),1)+' ml');
+
+  // Vasoaktiva
+  s('eph-mg',f(w*0.1,2)+' mg');s('eph-ml',f(w*0.1/10,2)+' ml');
+  s('atp-mg',f(w*0.02,2)+' mg');s('atp-ml',f(w*0.02/0.5,2)+' ml');
+  s('ap-lo',f(w,1));s('ap-hi',f(w*5,1));
+  s('ap-ml-lo',f(w*60/10,1));s('ap-ml-hi',f(w*5*60/10,1));
+  s('noa-mcg',f(w*0.1,2)+'–'+f(w*0.5,2)+' mcg/kg/min');
+  s('noa-ml',f(w/3,1)+' ml/h (für 0.1 mcg/kg/min)');
+  s('dob-lo',f(w*5,1));s('dob-hi',f(w*20,1));
+  s('dob-ml-lo',f(w*5*60/5000,2));s('dob-ml-hi',f(w*20*60/5000,2));
+
+  // PONV
+  s('ond-lo',f(w*0.1,1));s('ond-hi',f(w*0.15,1));
+  s('ond-ml-lo',f(w*0.1/2,2));s('ond-ml-hi',f(w*0.15/2,2));
+  s('dex-mg',f(w*0.15,2)+' mg');s('dex-ml',f(w*0.15/4,2)+' ml');
+  s('vom-mg',f(w,1)+' mg');s('vom-ml',f(w/62,2)+' ml');
+  s('dro-lo',f(w*10,0));s('dro-hi',f(w*15,0));
+  s('dro-ml-lo',f(w*0.01/2.5,3));s('dro-ml-hi',f(w*0.015/2.5,3));
+
+  // Basisanalgetika
+  const psu=w*20;
+  let suppstr=psu<=80?'60 mg Zäpfchen':psu<=175?'125 mg Zäpfchen':psu<=375?'250 mg Zäpfchen':'500 mg Zäpfchen';
+  s('pcs-mg',f(psu,0)+' mg');s('pcs-zf','→ '+suppstr);
+  s('pciv-mg',f(w*15,0)+' mg');s('pciv-ml',f(w*15/10,1)+' ml');
+  s('met-lo',f(w*10,0));s('met-hi',f(w*15,0));
+  s('met-ml-lo',f(w*10/500,2));s('met-ml-hi',f(w*15/500,2));
+  const ibu=w*10;
+  let ibustr=w<6?'<6 kg — kein Ibu':w<12?'60 mg Supp':w<30?'125 mg Supp':'200 mg Supp';
+  s('ibs-mg',f(ibu,0)+' mg');s('ibs-zf','→ '+ibustr);
+  const ageCheck=hasA?a:estimateAge(w);
+  if(ageCheck<6){s('ibiv-mg','<6 J — nicht zugelassen');s('ibiv-ml','—');}
+  else{s('ibiv-mg',f(w*10,0)+' mg');s('ibiv-ml',f(w*10/4,1)+' ml');}
+
+  // Sedativa
+  s('clo-lo',f(w,0));s('clo-hi',f(w*2,0));
+  s('clo-ml-lo',f(w/15,2));s('clo-ml-hi',f(w*2/15,2));
+  s('dxd-lo',f(w*0.5,1));s('dxd-hi',f(w,1));
+  s('dxd-ml-lo',f(w*0.5/100,2));s('dxd-ml-hi',f(w/100,2));
+  s('nal-lo',f(w*0.1,1));s('nal-hi',f(w*0.2,1));
+  s('nal-ml-lo',f(w*0.1/1,2));s('nal-ml-hi',f(w*0.2/1,2));
+  s('mid-lo',f(w*0.05,2));s('mid-hi',f(w*0.1,2));
+  s('mid-ml-lo',f(w*0.05,2));s('mid-ml-hi',f(w*0.1,2));
+
+  // Warnungen
+  let warns=[];
+  if(w<5)warns.push('<strong>&lt;5 kg:</strong> Mantoux-Spritze (1 ml) für Medis');
+  if(w<3)warns.push('<strong>FG/NG:</strong> iv-Einleitung, Pentothal bevorzugen, Glukose 1%');
+  if(ageCheck<0.5)warns.push('<strong>SG &lt;6 Mt:</strong> Kein Clonidin, keine PONV-Prophylaxe, kein Sugammadex');
+  const we=document.getElementById('nb-warn');
+  if(we){we.innerHTML=warns.join('<br>');we.style.display=warns.length?'block':'none';}
+
+  // ===== MATERIAL TAB =====
+  const matCards=document.getElementById('mat-cards');
+  const matHint=document.getElementById('mat-hint');
+  const tubeRow=findTubeRow(hasW?w:null, hasA?a:null);
+  const tubeRowByW=findTubeRow(hasW?w:null, hasA?a:null);
+
+  if(matCards)matCards.style.display='block';
+  if(matHint)matHint.style.display='none';
+
+  if(tubeRowByW){
+    const hasCuff=tubeRowByW.cuffed!=null;
+    s('mv-main',hasCuff?tubeRowByW.cuffed:(tubeRowByW.uncuffed||'—'));
+    s('mv-unc',tubeRowByW.uncuffed||'—');
+    s('mv-depth',tubeRowByW.depth);
+    s('mv-lma',tubeRowByW.lma);
+    s('mv-fib',tubeRowByW.fib);
+    s('mv-ae',tubeRowByW.ae);
+    s('pill-tubus',hasCuff?tubeRowByW.cuffed+' mm (Cuff)':(tubeRowByW.uncuffed||'—')+' mm');
+    s('pill-tiefe',tubeRowByW.depth);
+
+    const mcMain=document.getElementById('mc-main');
+    const mlMain=document.getElementById('ml-main');
+    const mcCuff=document.getElementById('mc-cuff');
+    if(mcMain&&mlMain&&mcCuff){
+      if(hasCuff){
+        mcMain.className='mcard primary';
+        mlMain.textContent='Tubus ID (mm) — Microcuff';
+        mcCuff.className='alert ag';
+        mcCuff.innerHTML='<strong>Gecuffter Tubus (Microcuff)</strong> — Cuffdruck max 20 cmH₂O · nach Umlagerung kontrollieren!';
+        mcCuff.style.display='block';
+      } else {
+        mcMain.className='mcard danger';
+        mlMain.textContent='Tubus ID (mm) — ungecufft';
+        mcCuff.className='alert aa';
+        mcCuff.innerHTML='<strong>Ungecuffter Tubus</strong> — FG/sehr kleines SG, kein Cuff möglich.';
+        mcCuff.style.display='block';
+      }
+    }
+    hlById('mat-tube-table',tubeRowByW.id);
+  }
+
+  // 4-2-1-Regel Erhaltungsbedarf
+  let maint,maintCalc;
+  if(w<=10){maint=w*4;maintCalc=f(w,1)+' kg × 4 ml/kg/h';}
+  else if(w<=20){maint=10*4+(w-10)*2;maintCalc='10 × 4 + '+f(w-10,1)+' × 2 ml/kg/h';}
+  else{maint=10*4+10*2+(w-20)*1;maintCalc='10 × 4 + 10 × 2 + '+f(w-20,1)+' × 1 ml/kg/h';}
+  s('maint-421',f(maint,1));
+  s('maint-421-calc',maintCalc+' = '+f(maint,1)+' ml/h');
+
+  // Prämedikation
+  const pmEmpty=document.getElementById('pm-empty');
+  if(pmEmpty)pmEmpty.style.display='none';
+  s('pm-mid-oral',f(Math.min(w*0.5,15),1)+' mg');
+  s('pm-mid-rect',f(w*1,1)+' mg');
+  s('pm-mid-nas',f(w*0.2,1)+' mg');
+  s('pm-mid-iv',f(w*0.05,2)+'–'+f(w*0.1,2)+' mg');
+  s('pm-ket-oral',f(w*2,1)+'–'+f(w*4,1)+' mg');
+  s('pm-ket-rect',f(w*6,1)+' mg');
+  s('pm-ket-nas',f(w*4,1)+' mg');
+  s('pm-esket-nas',f(w*2,1)+'–'+f(w*4,1)+' mg');
+  s('pm-dex-nas',f(w*2,1)+' mcg');
+
+  hlTable('mat-lary-table','data-lw',hasW?w:null);
+  hlTable('mat-sch-table','data-sw',hasW?w:null);
+  hlGuedel(hasW?w:null);
+
+  const mcWarn=document.getElementById('mc-warn');
+  if(mcWarn){
+    const mwarns=[];
+    if(hasW&&w<2)mwarns.push('<strong>FG:</strong> Neonatologie-Team frühzeitig informieren!');
+    if(hasW&&w<10)mwarns.push('<strong>SG &lt;10 kg:</strong> VL obligat · kein Patienten-Filter');
+    if(!hasA)mwarns.push('<strong>Tipp:</strong> Alter eingeben für präzisere Tubusgrösse');
+    mcWarn.innerHTML=mwarns.join('<br>');
+    mcWarn.style.display=mwarns.length?'block':'none';
+  }
+}
+
+function estimateAge(w){
+  if(w<=3.5)return 0;if(w<=6)return 0.25;if(w<=10)return 0.75;
+  if(w<=12)return 1.5;if(w<=15)return 3;if(w<=20)return 6;
+  if(w<=30)return 9;return 13;
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>
